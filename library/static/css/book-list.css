@@ -1,0 +1,14 @@
+.book-list {
+    list-style: none;
+}
+
+.new-book-link {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 5em;
+    margin-top: 4em;
+}
+
+.new-book-link a {
+    text-decoration: none;
+}

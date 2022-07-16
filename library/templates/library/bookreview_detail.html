@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/bookreview-detail.css' %}">
+<div class="main-content">
+<div class="content-header">
+  <h1>{{bookreview.title}}</h1>
+  <h4>Review of {{bookreview.book.title}} </a> by {{bookreview.reviewer.username}}</h4>
+    </div>
+  <div class="body-text">
+  {{bookreview.summary | safe}}
+  </div>
+  <div class="tag_list">
+  <h4>Find More</h4>
+  {% for tag in bookreview.tags.all %}
+  
+  <a href="search/?{{tag}}"><p>{{ tag }}</p></a>
+  
+  {% endfor %}
+  </div>
+    </div>
+{% endblock %}

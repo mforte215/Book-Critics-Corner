@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="main-content">
+<div class="content-header">
+  <h1 >Title: {{ book.title }} Rating: {{ book.rating_avg }}</h1>
+    </div>
+  <p><strong>Author:</strong> <a href="{{book.author.get_absolute_url}}">{{ book.author }}</a></p> <!-- author detail link not yet defined -->
+  <p><strong>Summary:</strong> {{ book.summary }}</p>
+  <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+  <p><strong>Language:</strong> {{ book.language }}</p>
+  <p><strong>Genre:</strong> {{ book.genre.all|join:", " }}</p>
+  <div>
+  <h1>Latest Reviews and Critiques</h2>
+  {% if reviews %}
+  {% for review in reviews %}
+  <p><a href="{{ review.get_absolute_url }}">{{ review.title }}</a> by {{review.reviewer}} </p>  
+  {% endfor %}
+  {% else %}
+  <p>Sorry no reviews were found! Try again later or write your own!</p>
+  {% endif %}
+  </div>
+
+    </div>
+{% endblock %}

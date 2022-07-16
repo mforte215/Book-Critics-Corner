@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/review-list.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/starability-all.css' %}"/>
+<div class="main-content">
+<div class="content-header">
+  <h1>Reviews</h1>
+  </div>
+  {% if user.is_authenticated %}
+    <div class="new-book-link">
+  <h3><a style="color: black;" href="{% url 'review-create' %}">Add New Review</a></h3>
+  </div>
+  {% endif %}
+  {% if bookreview_list %}
+  <ul class="review-list">
+    {% for bookreview in bookreview_list %}
+      <li>
+      <br>
+        <div><div class="review-info"><a href="{{ bookreview.get_absolute_url }}">Review of {{bookreview.book.title}} </a> by {{bookreview.reviewer.username}} at {{ bookreview.created_date}} </div>
+         <fieldset class="starability-result mx-auto star-custom" data-rating="{{ bookreview.review_score }}">
+
+    Rated: {{ bookreview.review_score }} stars
+</fieldset>
+<br>
+<br>
+<hr></div>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no reviews in the library.</p>
+  {% endif %} 
+  </div>
+{% endblock %}

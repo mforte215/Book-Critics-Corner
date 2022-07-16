@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/book-list.css' %}">
+<div class="main-content">
+<div class="content-header">
+  <h1>Search Resultss</h1>
+  </div>
+  {% if search_book_list %}
+  <ul class="book-list">
+    {% for book in search_book_list %}
+      <li>
+        <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %} 
+  </div>
+{% endblock %}

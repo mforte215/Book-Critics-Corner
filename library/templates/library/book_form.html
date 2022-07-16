@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<div class="main-content">
+<div class="content-header">
+<h1>Request New Book To Be Added </h1>
+</div>
+<div class="auth-tile">
+    <div style="width: 60%; margin: auto;">
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit">
+  </form>
+  </div>
+  </div>
+  </div>
+{% endblock %}

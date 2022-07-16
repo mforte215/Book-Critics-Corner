@@ -1,0 +1,14 @@
+.author-list {
+    list-style: none;
+}
+
+.new-author-link {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 5em;
+    margin-top: 4em;
+}
+
+.new-author-link a {
+    text-decoration: none;
+}

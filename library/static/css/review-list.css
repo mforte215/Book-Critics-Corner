@@ -1,0 +1,19 @@
+.review-list {
+    list-style: none;
+    display: inline;
+}
+
+.star-custom {
+    float: right;
+    border: none;
+}
+
+.review-list {
+    text-align: left;
+    
+}
+
+.review-info {
+    width: 75%;
+    float: left;
+}

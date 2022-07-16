@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/author-list.css' %}">
+<div class="main-content">
+<div class="content-header">
+  <h1>Author List</h1>
+  </div>
+  {% if user.is_authenticated %}
+  <div class="new-author-link">
+  <h3><a style="color: black;" href="{% url 'author-create' %}">Add New Author</a></h3>
+  </div>
+  {% endif %}
+  {% if author_list %}
+  <ul class="author-list">
+    {% for author in author_list %}
+      <li>
+        <a href="{{ author.get_absolute_url }}">{{ author.first_name }} {{ author.last_name }} </a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no authors in the library.</p>
+  {% endif %}
+  </div> 
+{% endblock %}

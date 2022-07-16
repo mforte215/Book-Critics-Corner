@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="main-content">
+<div class="content-header">
+  <h1>Discover More</h1>
+  <form action="" method="post">
+      {% csrf_token %}
+  {{ form.as_table}}
+  <button type="submit">Search</button>
+  </form>
+    </div>
+    <div>
+    {% if books %}
+    <h2>Results:</h2>
+    <ul>
+    {% for result in books %}
+    <li>
+    {{result.title}}
+    </li>
+
+    
+    {% endfor %}
+    
+    </ul>
+
+    {% else %}
+    <p>Sorry Nothing Found</p>
+    {% endif %}
+    </div>
+    </div>
+{% endblock %}
